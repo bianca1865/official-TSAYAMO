@@ -32,18 +32,21 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 18px;            /* More space between logo and text */
+      min-width: 180px;     /* Ensures enough space for logo and name */
     }
     .logo-img {
-      height: 48px;
-      width: 48px;
+      height: 64px;         /* Increased height */
+      width: 64px;          /* Increased width */
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 12px;  /* Slightly more rounded */
       background: var(--yellow);
       border: 2px solid var(--orange-light);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 6px;         /* Added padding for better fit */
+      box-sizing: border-box;
     }
     .company-name {
       font-size: 1.6rem;
@@ -117,7 +120,7 @@
     }
     .previous-news {
       flex: 1;
-      background: var(--orange-light);
+      background: var(--grey);
       padding: 24px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(255,184,77,0.08);
