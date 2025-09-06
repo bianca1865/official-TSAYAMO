@@ -9,7 +9,7 @@
   <style>
     :root {
       --orange: #fc9d03;
-      --orange-light: #ffb84d;
+      --orange-light: #ffb84d4d;
       --yellow: #f6dd62;
       --black: #111;
       --white: #fff;
@@ -154,6 +154,60 @@
       margin-bottom: 0;
       padding-bottom: 0;
     }
+    .news-item-btn {
+      background: none;
+      border: none;
+      text-align: left;
+      width: 100%;
+      padding: 0;
+      margin: 0 0 12px 0;
+      cursor: pointer;
+      border-bottom: 1px solid #ffb84d33;
+      transition: background 0.15s;
+    }
+    .news-item-btn:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .news-item-btn:hover {
+      background: #fff7e0;
+    }
+    .news-popup {
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .news-popup-content {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 24px 24px 24px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      position: relative;
+      text-align: center;
+    }
+    .news-popup-close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 2rem;
+      color: #888;
+      cursor: pointer;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .news-popup-close:hover {
+      color: var(--orange);
+    }
+    .news-popup h4 {
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
@@ -176,12 +230,11 @@
 <body>
   <header>
     <div class="logo-container">
-      <!-- Paste your logo image below by replacing 'tsayamo-logo.png' -->
       <img src="tsayamo-logo.png" alt="Tsayamo Logo" class="logo-img" />
     </div>
     <nav>
       <a href="creative-services.html">
-        <i class="ri-brush-line creative-icon"></i>
+        <i class="ri-brush-line creative-icon" title="Creative Services"></i>
         CREATIVE SERVICES
       </a>
       <a href="about.html" class="note-icon-link" title="About Us">
@@ -193,29 +246,72 @@
     <section class="latest-news">
       <h2>Latest News</h2>
       <article>
-        <h3>Exciting Announcement!</h3>
+        <h3>
+          <i class="ri-lightbulb-flash-line creative-icon" title="Announcement"></i>
+          Exciting Announcement!
+        </h3>
         <p>
           We are thrilled to share our latest updates with you. Stay tuned for more information about our upcoming projects and events.
         </p>
-        <small>September 6, 2025</small>
+        <small>
+          <i class="ri-calendar-event-line creative-icon" title="Date"></i>
+          September 6, 2025
+        </small>
       </article>
     </section>
     <aside class="previous-news">
-      <h3>Previous News</h3>
-      <div class="news-item">
-        <strong>August 30, 2025</strong>
+      <h3>
+        <i class="ri-history-line creative-icon" title="Previous News"></i>
+        Previous News
+      </h3>
+      <button class="news-item-btn" onclick="showNewsPopup('August 30, 2025', 'Our summer event was a huge success. Thank you to everyone who participated!')">
+        <strong>
+          <i class="ri-paint-brush-line creative-icon" title="Branding"></i>
+          August 30, 2025
+        </strong>
         <p>Our summer event was a huge success. Thank you to everyone who participated!</p>
-      </div>
-      <div class="news-item">
-        <strong>August 15, 2025</strong>
+      </button>
+      <button class="news-item-btn" onclick="showNewsPopup('August 15, 2025', 'We launched our new website. Explore the new features and let us know your feedback.')">
+        <strong>
+          <i class="ri-printer-line creative-icon" title="Printing"></i>
+          August 15, 2025
+        </strong>
         <p>We launched our new website. Explore the new features and let us know your feedback.</p>
-      </div>
-      <div class="news-item">
-        <strong>July 28, 2025</strong>
+      </button>
+      <button class="news-item-btn" onclick="showNewsPopup('July 28, 2025', 'Registration for the annual conference is now open.')">
+        <strong>
+          <i class="ri-magic-line creative-icon" title="Product Development"></i>
+          July 28, 2025
+        </strong>
         <p>Registration for the annual conference is now open.</p>
-      </div>
+      </button>
       <!-- Add more news items as needed -->
     </aside>
+    <!-- Popup Modal -->
+    <div id="newsPopup" class="news-popup" style="display:none;">
+      <div class="news-popup-content">
+        <span class="news-popup-close" onclick="closeNewsPopup()">&times;</span>
+        <h4 id="popupDate"></h4>
+        <p id="popupText"></p>
+      </div>
+    </div>
   </div>
+  <script>
+    function showNewsPopup(date, text) {
+      document.getElementById('popupDate').textContent = date;
+      document.getElementById('popupText').textContent = text;
+      document.getElementById('newsPopup').style.display = 'flex';
+    }
+    function closeNewsPopup() {
+      document.getElementById('newsPopup').style.display = 'none';
+    }
+    // Optional: Close popup when clicking outside content
+    window.onclick = function(event) {
+      const popup = document.getElementById('newsPopup');
+      if (event.target === popup) {
+        closeNewsPopup();
+      }
+    }
+  </script>
 </body>
 </html>
