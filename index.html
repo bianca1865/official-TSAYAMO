@@ -4,131 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tsayamo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    :root {
+      --orange: #ff6600;
+      --black: #111;
+      --white: #fff;
+    }
     body {
-      background-color: #fff;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--white);
+      color: var(--black);
     }
-    .navbar {
-      background-color: orange;
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 32px;
+      padding: 0 16px;
     }
-    .navbar-brand, .nav-link {
-      color: white !important;
-      font-weight: bold;
+    .latest-news {
+      flex: 2;
+      background: var(--white);
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(255,102,0,0.08);
+      border-left: 6px solid var(--orange);
     }
-    .tab-content {
-      padding: 30px;
+    .latest-news h2 {
+      color: var(--orange);
+      margin-top: 0;
     }
-    .services-list li {
-      background: #fff3e0;
-      padding: 12px;
-      margin: 8px 0;
-      border-left: 5px solid orange;
-      border-radius: 6px;
-      font-size: 1.1em;
+    .latest-news article h3 {
+      color: var(--black);
+      margin-bottom: 8px;
     }
-    footer {
-      background-color: orange;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+    .latest-news article small {
+      color: var(--orange);
     }
-    .contact-info li {
-      margin: 10px 0;
-      font-size: 1.05em;
+    .previous-news {
+      flex: 1;
+      background: var(--black);
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(255,102,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: 600px;
+      overflow-y: auto;
     }
-    h2 {
-      color: orange;
-      font-weight: bold;
+    .previous-news h3 {
+      color: var(--orange);
+      margin-top: 0;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 8px;
+    }
+    .news-item {
+      border-bottom: 1px solid #ff660033;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+    .news-item strong {
+      color: var(--orange);
+    }
+    .news-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      .previous-news {
+        max-height: none;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Tsayamo</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#research">Research & News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#about">About Us</a>
-          </li>
-        </ul>
+  <div class="container">
+    <section class="latest-news">
+      <h2>Latest News</h2>
+      <article>
+        <h3>Exciting Announcement!</h3>
+        <p>
+          We are thrilled to share our latest updates with you. Stay tuned for more information about our upcoming projects and events.
+        </p>
+        <small>September 6, 2025</small>
+      </article>
+    </section>
+    <aside class="previous-news">
+      <h3>Previous News</h3>
+      <div class="news-item">
+        <strong>August 30, 2025</strong>
+        <p>Our summer event was a huge success. Thank you to everyone who participated!</p>
       </div>
-    </div>
-  </nav>
-
-  <!-- Tab Content -->
-  <div class="tab-content container">
-
-    <!-- Research & News Tab -->
-    <div class="tab-pane fade show active" id="research">
-      <h2>Informational Research & Latest News in Botswana</h2>
-      <p>Stay updated with the latest insights, trends, and developments in Botswana. 
-         Our team researches and shares news updates to keep you informed about the nation’s progress, 
-         policies, economy, culture, and social dynamics.</p>
-      <div class="mt-4">
-        <h5><strong>Latest Headlines:</strong></h5>
-        <ul>
-          <li>📌 Botswana strengthens wildlife conservation efforts.</li>
-          <li>📌 Economic diversification strategies introduced for 2025.</li>
-          <li>📌 Youth entrepreneurship programs launched nationwide.</li>
-        </ul>
+      <div class="news-item">
+        <strong>August 15, 2025</strong>
+        <p>We launched our new website. Explore the new features and let us know your feedback.</p>
       </div>
-    </div>
-
-    <!-- Services Tab -->
-    <div class="tab-pane fade" id="services">
-      <h2>Our Services</h2>
-      <p>At Tsayamo, we offer professional and creative solutions to meet your business needs:</p>
-      <ul class="services-list">
-        <li>Branding & Identity Development</li>
-        <li>Printing Services</li>
-        <li>Product Development</li>
-        <li>Signage Solutions</li>
-        <li>Marketing & Advertising Strategies</li>
-        <li>Video Production</li>
-        <li>Voice Overs</li>
-      </ul>
-    </div>
-
-    <!-- About Us & Contact Tab -->
-    <div class="tab-pane fade" id="about">
-      <h2>About Us</h2>
-      <p>Tsayamo is a forward-thinking agency based in Botswana, dedicated to empowering businesses 
-         with creative, innovative, and research-driven solutions. Our mission is to bridge the gap 
-         between information, branding, and communication, helping organizations thrive in a dynamic market.</p>
-
-      <p>We believe in the power of knowledge and creativity to transform ideas into impactful outcomes. 
-         With expertise in branding, product development, marketing, and digital media, we support 
-         enterprises in achieving visibility, credibility, and long-term growth.</p>
-
-      <h3 class="mt-4" style="color: orange;">Contact Us</h3>
-      <ul class="contact-info list-unstyled">
-        <li>📍 Location: Gaborone, Botswana</li>
-        <li>📞 Phone: +267 71 234 567</li>
-        <li>📧 Email: info@tsayamo.co.bw</li>
-      </ul>
-    </div>
+      <div class="news-item">
+        <strong>July 28, 2025</strong>
+        <p>Registration for the annual conference is now open.</p>
+      </div>
+      <!-- Add more news items as needed -->
+    </aside>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Tsayamo | Designed with passion in Botswana</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+
