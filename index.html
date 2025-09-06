@@ -71,11 +71,6 @@
       background: var(--orange-light);
       color: var(--black);
     }
-    .creative-icon {
-      font-size: 22px;
-      color: var(--orange);
-      vertical-align: middle;
-    }
     .note-icon-link {
       display: flex;
       align-items: center;
@@ -121,6 +116,15 @@
       color: var(--orange);
       opacity: 0.7;
     }
+    .latest-news-img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      display: block;
+      box-shadow: 0 2px 8px #ffb84d33;
+    }
     .previous-news {
       flex: 1;
       background: var(--grey);
@@ -140,20 +144,6 @@
       border-bottom: 2px solid var(--orange);
       padding-bottom: 8px;
     }
-    .news-item {
-      border-bottom: 1px solid #ffb84d33;
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-      color: var(--black);
-    }
-    .news-item strong {
-      color: var(--orange);
-    }
-    .news-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
     .news-item-btn {
       background: none;
       border: none;
@@ -164,6 +154,9 @@
       cursor: pointer;
       border-bottom: 1px solid #ffb84d33;
       transition: background 0.15s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .news-item-btn:last-child {
       border-bottom: none;
@@ -171,6 +164,25 @@
     }
     .news-item-btn:hover {
       background: #fff7e0;
+    }
+    .news-item-img {
+      width: 100%;
+      max-width: 120px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 4px #ffb84d33;
+      display: block;
+    }
+    .news-item strong {
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .news-item-btn p {
+      margin: 0 0 8px 0;
+      color: var(--black);
     }
     .news-popup {
       position: fixed;
@@ -208,6 +220,17 @@
       color: var(--orange);
       margin-bottom: 12px;
     }
+    .news-popup-img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px #ffb84d33;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
@@ -234,7 +257,6 @@
     </div>
     <nav>
       <a href="creative-services.html">
-        <i class="ri-brush-line creative-icon" title="Creative Services"></i>
         CREATIVE SERVICES
       </a>
       <a href="about.html" class="note-icon-link" title="About Us">
@@ -246,41 +268,39 @@
     <section class="latest-news">
       <h2>Latest News</h2>
       <article>
+        <img src="images/latest-news.jpg" alt="Latest News Image" class="latest-news-img" />
         <h3>
-          <i class="ri-lightbulb-flash-line creative-icon" title="Announcement"></i>
           Exciting Announcement!
         </h3>
         <p>
           We are thrilled to share our latest updates with you. Stay tuned for more information about our upcoming projects and events.
         </p>
         <small>
-          <i class="ri-calendar-event-line creative-icon" title="Date"></i>
           September 6, 2025
         </small>
       </article>
     </section>
     <aside class="previous-news">
       <h3>
-        <i class="ri-history-line creative-icon" title="Previous News"></i>
         Previous News
       </h3>
-      <button class="news-item-btn" onclick="showNewsPopup('August 30, 2025', 'Our summer event was a huge success. Thank you to everyone who participated!')">
+      <button class="news-item-btn" onclick="showNewsPopup('August 30, 2025', 'Our summer event was a huge success. Thank you to everyone who participated!', 'images/prev1.jpg')">
+        <img src="images/prev1.jpg" alt="Branding News" class="news-item-img" />
         <strong>
-          <i class="ri-paint-brush-line creative-icon" title="Branding"></i>
           August 30, 2025
         </strong>
         <p>Our summer event was a huge success. Thank you to everyone who participated!</p>
       </button>
-      <button class="news-item-btn" onclick="showNewsPopup('August 15, 2025', 'We launched our new website. Explore the new features and let us know your feedback.')">
+      <button class="news-item-btn" onclick="showNewsPopup('August 15, 2025', 'We launched our new website. Explore the new features and let us know your feedback.', 'images/prev2.jpg')">
+        <img src="images/prev2.jpg" alt="Printing News" class="news-item-img" />
         <strong>
-          <i class="ri-printer-line creative-icon" title="Printing"></i>
           August 15, 2025
         </strong>
         <p>We launched our new website. Explore the new features and let us know your feedback.</p>
       </button>
-      <button class="news-item-btn" onclick="showNewsPopup('July 28, 2025', 'Registration for the annual conference is now open.')">
+      <button class="news-item-btn" onclick="showNewsPopup('July 28, 2025', 'Registration for the annual conference is now open.', 'images/prev3.jpg')">
+        <img src="images/prev3.jpg" alt="Product Development News" class="news-item-img" />
         <strong>
-          <i class="ri-magic-line creative-icon" title="Product Development"></i>
           July 28, 2025
         </strong>
         <p>Registration for the annual conference is now open.</p>
@@ -291,15 +311,23 @@
     <div id="newsPopup" class="news-popup" style="display:none;">
       <div class="news-popup-content">
         <span class="news-popup-close" onclick="closeNewsPopup()">&times;</span>
+        <img id="popupImg" class="news-popup-img" src="" alt="News Image" style="display:none;" />
         <h4 id="popupDate"></h4>
         <p id="popupText"></p>
       </div>
     </div>
   </div>
   <script>
-    function showNewsPopup(date, text) {
+    function showNewsPopup(date, text, imgSrc) {
       document.getElementById('popupDate').textContent = date;
       document.getElementById('popupText').textContent = text;
+      var img = document.getElementById('popupImg');
+      if (imgSrc) {
+        img.src = imgSrc;
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
       document.getElementById('newsPopup').style.display = 'flex';
     }
     function closeNewsPopup() {
