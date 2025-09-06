@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Services | Tsayamo</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     :root {
       --orange: #fc9d03;
@@ -75,12 +77,9 @@
       background: var(--orange-light);
       color: var(--black);
     }
-    .home-icon {
-      width: 22px;
-      height: 22px;
-      fill: var(--black);
-      display: inline-block;
-      vertical-align: middle;
+    .fa-house {
+      font-size: 22px;
+      color: var(--black);
     }
     .note-icon-link {
       display: flex;
@@ -95,11 +94,9 @@
     .note-icon-link:hover {
       background: var(--yellow);
     }
-    .note-icon {
-      width: 22px;
-      height: 22px;
-      fill: var(--orange);
-      display: block;
+    .fa-note-sticky {
+      font-size: 22px;
+      color: var(--orange);
     }
     main {
       max-width: 1200px;
@@ -188,14 +185,13 @@
       gap: 18px;
     }
     .social-icon {
-      width: 28px;
-      height: 28px;
-      fill: var(--black);
-      transition: fill 0.2s;
+      font-size: 28px;
+      color: var(--black);
+      transition: color 0.2s;
       display: inline-block;
     }
     .social-icon:hover {
-      fill: var(--orange);
+      color: var(--orange);
     }
     @media (max-width: 900px) {
       .services-grid {
@@ -221,17 +217,11 @@
     </div>
     <nav>
       <a href="index.html" title="Home">
-        <svg class="home-icon" viewBox="0 0 24 24">
-          <path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-5h-6v5H4a1 1 0 0 1-1-1V11.5z" fill="currentColor"/>
-        </svg>
+        <i class="fa-solid fa-house"></i>
         Home
       </a>
       <a href="about.html" class="note-icon-link" title="About Us">
-        <svg class="note-icon" viewBox="0 0 24 24">
-          <rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-          <line x1="8" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <line x1="8" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <i class="fa-solid fa-note-sticky"></i>
       </a>
     </nav>
   </header>
@@ -281,31 +271,19 @@
       </div>
       <div class="social-icons">
         <a href="https://facebook.com" target="_blank" title="Facebook">
-          <svg class="social-icon" viewBox="0 0 24 24">
-            <path d="M17 2.1v3.2h-1.9c-.2 0-.6.3-.6.8v1.7h2.5l-.3 2.6h-2.2V22h-3.1V10.4H7.5V7.8h2.1V6c0-2 1.2-3.1 3.1-3.1.9 0 1.7.1 1.9.2z" fill="currentColor"/>
-          </svg>
+          <i class="fab fa-facebook-f social-icon"></i>
         </a>
         <a href="https://twitter.com" target="_blank" title="Twitter">
-          <svg class="social-icon" viewBox="0 0 24 24">
-            <path d="M22 5.8c-.8.4-1.6.7-2.5.8.9-.5 1.5-1.3 1.8-2.2-.8.5-1.7.9-2.6 1.1C17.7 4.6 16.7 4 15.6 4c-2.1 0-3.7 2-3.2 4.1C8.3 8 5.6 6.7 3.7 4.7c-.5.8-.3 1.8.5 2.3-.7 0-1.3-.2-1.8-.5v.1c0 1.6 1.1 2.9 2.6 3.2-.5.1-1 .2-1.5.1.4 1.2 1.5 2.1 2.8 2.1C5.1 13.1 3.6 13.7 2 13.7c-.4 0-.8 0-1.2-.1C2.3 15 4 16 6 16c7.5 0 11.6-6.2 11.6-11.6 0-.2 0-.4 0-.6.8-.6 1.5-1.3 2-2.1z" fill="currentColor"/>
-          </svg>
+          <i class="fab fa-twitter social-icon"></i>
         </a>
         <a href="https://instagram.com" target="_blank" title="Instagram">
-          <svg class="social-icon" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/>
-            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-          </svg>
+          <i class="fab fa-instagram social-icon"></i>
         </a>
         <a href="https://linkedin.com" target="_blank" title="LinkedIn">
-          <svg class="social-icon" viewBox="0 0 24 24">
-            <rect x="2" y="3" width="20" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
-            <rect x="6" y="8" width="2" height="7" fill="currentColor"/>
-            <circle cx="7" cy="6" r="1" fill="currentColor"/>
-            <rect x="10" y="8" width="2" height="7" fill="currentColor"/>
-            <rect x="14" y="8" width="2" height="4" fill="currentColor"/>
-          </svg>
+          <i class="fab fa-linkedin-in social-icon"></i>
         </a>
       </div>
     </div>
   </main>
+</body>
+</html>
